@@ -6,4 +6,3 @@ export function createHouse(){
  makeDoor(0,11,0); makeDoor(-7,5,Math.PI/2); makeDoor(7,-2,Math.PI/2);
 }
 function makeDoor(x,z,rot){const d=new THREE.Mesh(new THREE.BoxGeometry(2.6,4,.18),mats.wood);d.position.set(x,2,z);d.rotation.y=rot;d.castShadow=d.receiveShadow=true;d.userData={open:false,target:0,baseRot:rot};scene.add(d);doors.push(d);return d;}
-export function updateDoors(dt){for(const d of doors){const t=d.userData.target;d.userData.openProgress+=(t-d.userData.openProgress)*Math.min(1,dt*8);}}
